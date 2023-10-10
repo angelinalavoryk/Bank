@@ -2,6 +2,7 @@ import React from 'react';
 import './_Home.scss';
 import Header from '../../components/Header/Header.jsx';
 import Footer from '../../components/Footer/Footer.jsx';
+
 import Hero from '../../components/Hero/Hero.jsx';
 import Feature from '../../components/Feature/Feature.jsx';
 import  Iconchat from '../../images/icon-chat.png';
@@ -11,7 +12,7 @@ import  Iconsecurity from '../../images/icon-security.png';
 function Home() {
     return (
       <div>
-        <Header />
+        <Header/>
         <main>
           <Hero />
           <section className="features">
@@ -33,7 +34,7 @@ function Home() {
             />
           </section>
         </main>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
