@@ -8,6 +8,7 @@ const initialState = {
     switch (action.type) {
       case 'LOGIN_SUCCESS':
         return {
+            // retourne nouvel état en copiant l'état actuel 
           ...state,
           isAuthenticated: true,
           token: action.payload,
@@ -21,6 +22,7 @@ const initialState = {
           error: action.payload,
         };
       default:
+        // si type d'action n'est pas géré, retourne l'état actuel sans  modifier.
         return state;
     }
   };

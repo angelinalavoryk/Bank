@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SignIn from '../SignIn/SignIn.jsx';
+// import LogOut from '../LogOut/LogOut.jsx';
 import ArgentBankLogo from '../../images/argentBankLogo.png';
 
 
@@ -15,10 +17,8 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
-        <Link to="/login"> 
-          <i className="fa fa-user-circle"></i>
-          Sign In
-        </Link>
+        <SignIn/> 
+        {/* <LogOut/>  */}
       </div>
     </nav>
   );

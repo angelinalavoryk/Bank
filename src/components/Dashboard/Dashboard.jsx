@@ -1,9 +1,8 @@
 import React from 'react';
-import './_Profile.scss'
+import './_Dashboard.scss'
 
-function Profile() {
+function Dashboard() {
     return (
-      
       <div className='bg-dark bg-account'>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
@@ -41,5 +40,5 @@ function Profile() {
     );
   }
   
-  export default Profile;
+  export default Dashboard;
 

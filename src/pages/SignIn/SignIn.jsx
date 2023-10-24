@@ -6,10 +6,13 @@ import Footer from '../../components/Footer/Footer.jsx';
 import './_SignIn.scss';
 
 function SignIn() {
+    //obtenir la fonction de dispatch authActions
   const dispatch = useDispatch();
+  //gérer l'état des champs de formulaire email et mot de passe
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  //appelé quand le formulaire est soumis
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(login(email, password));

@@ -1,0 +1,50 @@
+.userHeader{
+    margin-bottom: 50px;
+}
+
+.header{
+    padding-top: 50px;
+}
+
+.headerWelcomeTxt{
+    margin: 0;
+}
+.editNameContent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.editNameInputs{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+input{
+    width: 190px;
+    height: 40px;
+    padding-left: 15px;
+    font-size: 1.2rem;
+}
+
+.editNameButtons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.editName-button{
+    width: 120px;
+    height: 30px;
+    font-size: 1.1rem;
+    background-color: #42b983;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.editName-button.cancel{
+    background-color: rgb(243, 115, 10);
+}
+
