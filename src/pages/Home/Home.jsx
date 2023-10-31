@@ -1,8 +1,5 @@
 import React from 'react';
 import './_Home.scss';
-import Header from '../../components/Header/Header.jsx';
-import Footer from '../../components/Footer/Footer.jsx';
-
 import Hero from '../../components/Hero/Hero.jsx';
 import Feature from '../../components/Feature/Feature.jsx';
 import  Iconchat from '../../images/icon-chat.png';
@@ -12,11 +9,11 @@ import  Iconsecurity from '../../images/icon-security.png';
 function Home() {
     return (
       <div>
-        <Header/>
+        <div className='row'>
+        </div>
         <main>
           <Hero />
           <section className="features">
-            <h2 className="sr-only">Features</h2>
             <Feature
               icon={Iconchat}
               title="You are our #1 priority"
@@ -34,7 +31,6 @@ function Home() {
             />
           </section>
         </main>
-        <Footer/>
       </div>
     );
   }

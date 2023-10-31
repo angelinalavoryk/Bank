@@ -4,7 +4,6 @@ import './_Dashboard.scss'
 function Dashboard() {
     return (
       <div className='bg-dark bg-account'>
-      <h2 className="sr-only">Accounts</h2>
       <section className="account">
         <div className="account-content-wrapper">
           <h3 className="account-title">Argent Bank Checking (x8349)</h3>

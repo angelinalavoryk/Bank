@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducer/loginReducer.js';
+import rootReducer from './loginReducer.js';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

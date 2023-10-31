@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../app/actions/authAction.js';
-import Header from '../../components/Header/Header.jsx';
-import Footer from '../../components/Footer/Footer.jsx';
+import { login } from '../../store/authAction.js';
 import './_SignIn.scss';
 
-function SignIn() {
-    //obtenir la fonction de dispatch authActions
+function LogIn() {
   const dispatch = useDispatch();
-  //gérer l'état des champs de formulaire email et mot de passe
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +16,6 @@ function SignIn() {
 
   return (
     <div>
-      <Header />
       <div className='main-form-sign-in'>
         <main className="main bg-dark">
             <div className='padding'> 
@@ -58,12 +53,11 @@ function SignIn() {
           </div>
         </main>
       </div>
-      <Footer />
     </div>
   );
 }
 
-export default SignIn;
+export default LogIn;
 
 
 

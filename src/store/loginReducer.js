@@ -1,9 +1,9 @@
 const initialState = {
-    isAuthenticated: false,
-    token: null,
-    error: null,
-  };
-  
+  isAuthenticated: localStorage.getItem('authToken') ? true : false, // vérifie si un jeton d'authentification est présent dans le stockage local
+  token: localStorage.getItem('authToken') || null,
+  error: null,
+};
+
   const authReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'LOGIN_SUCCESS':
@@ -21,6 +21,21 @@ const initialState = {
           token: null,
           error: action.payload,
         };
+        case 'LOGOUT':
+          return {
+            ...state,
+            isAuthenticated: false,
+            token: null,
+            error: null,
+          };
+
+          case 'GET_USER_PROFILE_SUCCESS':
+      return {
+        ...state,
+        firstName: action.payload.firstName, // stockage du prénom dans le store
+        lastName: action.payload.lastName, 
+      };
+
       default:
         // si type d'action n'est pas géré, retourne l'état actuel sans  modifier.
         return state;
@@ -28,6 +43,5 @@ const initialState = {
   };
   
   export default authReducer;
-  
 
-  
+

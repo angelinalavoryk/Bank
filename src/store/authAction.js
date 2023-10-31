@@ -1,15 +1,16 @@
-import * as apiService from '../../services/api.js'; 
+import * as apiService from '../services/api.js'; 
 
 // Action de connexion
 export const login = (email, password) => async (dispatch) => {
   try {
     const jwtToken = await apiService.login(email, password);
+    localStorage.setItem('authToken', jwtToken);
 
     dispatch({
       type: 'LOGIN_SUCCESS',
       payload: jwtToken,
     });
-
+  
     // Redirigez l'utilisateur vers la page de profil après une connexion réussie
     window.location.href = '/profile'; 
   } catch (error) {
@@ -31,6 +32,29 @@ export const login = (email, password) => async (dispatch) => {
     });
   }
 };
+
+
+
+
+export const logout = () => (dispatch) => {
+  // supprimer token du stockage local
+  localStorage.removeItem('authToken');
+  
+  // déclencher une action de déconnexion
+  dispatch({
+    type: 'LOGOUT',
+  });
+  window.location.href = '/';
+};
+
+
+
+
+
+
+
+
+
 
 
 
