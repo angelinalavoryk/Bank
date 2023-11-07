@@ -59,7 +59,7 @@ function UserHeader() {
           </div>
         ) : (
           <div className="headerWelcomeName">
-            <h2 className='headerWelcomeName'>{firstName} {lastName} !</h2>
+            <h2 className='headerWelcomeName'>{firstName}  {lastName} !</h2>
             <button className="edit-button" onClick={handleEditClick}>Edit Name</button>
           </div>
         )}
