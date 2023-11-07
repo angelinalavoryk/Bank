@@ -1,3 +1,4 @@
+![Image de démonstration](https://github.com/angelinalavoryk/images/blob/main/argentBankLogo.png)
 # Argent Bank :bank:
 
 ![Image de démonstration](https://github.com/angelinalavoryk/images/blob/main/bank1.png)
