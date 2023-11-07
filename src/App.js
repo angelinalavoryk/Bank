@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home/Home.jsx';
@@ -8,6 +7,7 @@ import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import PrivateRoute from './utils/privateRoute.js';
 import PublicRoute from './utils/publicRoute.js';
+import NotFound from './pages/NotFound/NotFound.jsx';
 import './App.css';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
         />
         <Route path="/login" element={<PublicRoute element={<SignIn />} isAuthenticated={isAuthenticated} />} />
         <Route path="/profile" element={<PrivateRoute element={<User />} isAuthenticated={isAuthenticated} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

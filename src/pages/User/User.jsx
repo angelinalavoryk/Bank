@@ -1,7 +1,7 @@
 import React from 'react';
 import Dashboard from '../../components/Dashboard/Dashboard.jsx';
 import UserHeader from '../../components/UserHeader/UserHeader.jsx';
-import './_User.scss';
+
 
 function User() {
   return (
