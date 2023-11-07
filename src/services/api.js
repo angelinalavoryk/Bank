@@ -12,10 +12,6 @@ export const login = async (email, password) => {
   }
 };
 
-
-
-
-
 export const getUserProfile = async (authToken) => {
   try {
     const response = await axios.post(
@@ -32,9 +28,6 @@ export const getUserProfile = async (authToken) => {
     throw error;
   }
 };
-
-
-
 
 export const updateUserProfile = async (authToken, newFirstName, newLastName) => {
   try {

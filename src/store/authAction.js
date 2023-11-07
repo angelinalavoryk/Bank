@@ -34,8 +34,6 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 
-
-
 export const logout = () => (dispatch) => {
   // supprimer token du stockage local
   localStorage.removeItem('authToken');
@@ -46,6 +44,28 @@ export const logout = () => (dispatch) => {
   });
   window.location.href = '/';
 };
+
+
+
+export const updateUserName = (newFirstName, newLastName) => async (dispatch, getState) => {
+  try {
+    const authToken = getState().token;
+    await apiService.updateUserProfile(authToken, newFirstName, newLastName);
+    
+    // Mettre à jour le nom et le prénom dans le store Redux
+    dispatch({
+      type: 'UPDATE_USER_NAME_SUCCESS',
+      payload: { newFirstName, newLastName },
+    });
+  } catch (error) {
+    console.error('Erreur lors de la mise à jour du nom et du prénom:', error);
+  }
+};
+
+
+
+
+
 
 
 
