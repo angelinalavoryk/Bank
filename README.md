@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Argent Bank :bank:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Image de démonstration](https://github.com/angelinalavoryk/images/blob/main/bank1.png)
 
-## Available Scripts
+## Prérequis
 
-In the project directory, you can run:
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-### `npm start`
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) 
+- [yarn](https://yarnpkg.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Installation et exécution du projet
+###### :exclamation: Assurez-vous que le back-end est en cours d'exécution avant de démarrer le front-end pour que l'application fonctionne correctement.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+####  :large_orange_diamond: Back-end
 
-### `npm run build`
+1. Clonez le repo du back-end :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+    https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Accédez au répertoire du back-end :
+ ` cd Back-end `
+3. Installez les dépendances : ` npm install ` ou ` yarn `
+4. Lancez le serveur back-end : ` npm run dev:server `
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+####  :large_orange_diamond: Front-end
+1. Clonez le présent repo du front-end :
+   ```bash
+   https://github.com/angelinalavoryk/Bank
+2. Accédez au répertoire du front-end :
+   `cd Front-end ` 
+3. Installez les dépendances : ` npm install `
+4. Lancez l'application front-end : ` npm start `
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Image de démonstration](https://github.com/angelinalavoryk/images/blob/main/bank2.png)
+![Image de démonstration](https://github.com/angelinalavoryk/images/blob/main/bank3.png)

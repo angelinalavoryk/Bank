@@ -5,8 +5,8 @@ import SignIn from './pages/SignIn/SignIn.jsx';
 import User from './pages/User/User.jsx';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import PrivateRoute from './utils/privateRoute.js';
-import PublicRoute from './utils/publicRoute.js';
+import PrivateRoute from './components/routes/privateRoute.jsx';
+import PublicRoute from './components/routes/publicRoute.jsx';
 import NotFound from './pages/NotFound/NotFound.jsx';
 import './App.css';
 
