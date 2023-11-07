@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 
-
 const selectFirstName = (state) => state.firstName;
 const selectLastName = (state) => state.lastName;
 
