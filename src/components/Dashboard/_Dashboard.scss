@@ -1,6 +1,11 @@
 .bg-account{
     height: 680px;
 }
+@media (max-width: 250px) {
+  .bg-account{
+    height: 880px;
+  }
+}
 .account {
   display: flex;
   justify-content: space-between;
@@ -16,12 +21,18 @@
   margin-bottom: 2rem;
 }
 
+
 .account-amount {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
 }
 
+@media (max-width: 380px) {
+  .account-amount{
+  font-size: 1.5rem;
+  }
+}
 .account-amount-description {
   margin: 0;
 }
@@ -61,6 +72,11 @@
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+}
+@media (max-width: 380px) {
+  .transaction-button{
+  font-size: 0.9rem;
+  }
 }
 
 @media (min-width: 720px) {

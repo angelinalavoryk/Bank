@@ -8,6 +8,11 @@
   align-items: center;
   padding: 5px 20px;
 }
+@media (max-width: 450px) {
+  .main-nav{
+    padding: 5px 0;
+  }
+}
 
 .main-nav a {
   font-weight: bold;
@@ -24,8 +29,19 @@
 
 .main-nav-item {
   text-decoration: none;
-  margin-right: 0.5rem;
+  margin-right: 0.9rem;
 }
+
+.sign-out-p{
+  margin: 0;
+}
+
+@media (max-width: 450px) {
+  .sign-out-p{
+    display: none;
+  }
+}
+
 
 .main-nav-item:hover {
   text-decoration: underline;
@@ -138,5 +154,6 @@
   margin: 0;
   padding: 0;
 }
+
 
 

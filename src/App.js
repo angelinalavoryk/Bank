@@ -17,10 +17,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={isAuthenticated ? <PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} /> : <PublicRoute element={<Home />} isAuthenticated={isAuthenticated} />}
-        />
+        <Route path="/" element={isAuthenticated ? <PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} /> : <PublicRoute element={<Home />} isAuthenticated={isAuthenticated} />}/>
         <Route path="/login" element={<PublicRoute element={<SignIn />} isAuthenticated={isAuthenticated} />} />
         <Route path="/profile" element={<PrivateRoute element={<User />} isAuthenticated={isAuthenticated} />} />
         <Route path="*" element={<NotFound />} />

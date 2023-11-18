@@ -2,3 +2,10 @@
     display: flex;
     gap: 20px;
 }
+
+@media (max-width: 450px) {
+    .header-profile-page{
+      align-items: center;
+      gap: 5px;
+    }
+  }
