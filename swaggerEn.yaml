@@ -1,0 +1,486 @@
+swagger: '2.0'
+info:
+  title: Bank Money API documentation
+  description: Contains all available API endpoints in this codebase
+  version: '1.0.0'
+  termsOfService: 'http://swagger.io/terms/'
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - http
+paths:
+
+  /transactions/{accountId}:
+    get:
+      tags:
+      - Transactions
+      security:
+        - Bearer: []
+      summary: Get transactions for a specific bank card
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      responses:
+        '200':
+          description: Request successful
+          schema:
+            $ref: '#/definitions/Transaction'
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '403':
+          description: Access denied
+          schema:
+            $ref: '#/definitions/Error403'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/Error404'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'
+          
+    post:
+      tags:
+      - Transactions
+      security:
+        - Bearer: []
+      summary: Create a new transaction
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      - in: body
+        name: body
+        schema:
+          $ref: "#/definitions/NewTransaction"
+        required: true
+      responses:
+        '201':
+          description: Creation successful
+          schema:
+            $ref: '#/definitions/Transaction'
+          examples:
+            application/json:
+              id: "1265743"
+              date: "18-11-2023"
+              description: "Fuel purchase"
+              amount: 50
+              balance: 2452
+        '400':
+          description: Invalid request
+          examples:
+            application/json:
+              error: "The request contains invalid data"
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '403':
+          description: Access denied
+          schema:
+            $ref: '#/definitions/Error403'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'
+          
+          
+          
+  /transactions/{accountId}/{transactionId}:
+    get:
+      tags:
+          - Transactions
+      security:
+        - Bearer: []
+      summary: Get details of a specific transaction
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      - in: path
+        name: transactionId
+        type: string
+        required: true
+        description: Transaction identifier
+      responses:
+        '200':
+          description: Request successful
+          schema:
+            $ref: "#/definitions/TransactionDetails"
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '403':
+          description: Access denied
+          schema:
+            $ref: '#/definitions/Error403'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/Error404'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'
+          
+          
+          
+  /transactions/{accountId}/{transactionId}/category:
+    put:
+      tags:
+          - Transactions
+      security:
+        - Bearer: []
+      summary: Modify the category of a transaction
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      - in: path
+        name: transactionId
+        type: string
+        required: true
+        description: Transaction identifier
+      - in: body
+        name: body
+        schema:
+          $ref: "#/definitions/TransactionCategoryUpdate"
+        required: true
+      responses:
+        '200':
+          description: Modification successful
+          examples:
+            application/json:
+              message: "Transaction category updated successfully"
+        '400':
+          description: Invalid request
+          examples:
+            application/json:
+              error: "The request contains invalid data"
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'
+          
+          
+    delete:
+      tags:
+        - Transactions
+      security:
+        - Bearer: []
+      summary: Delete the category of a transaction
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      - in: path
+        name: transactionId
+        type: string
+        required: true
+        description: Transaction identifier
+      responses:
+        '204':
+          description: Deletion successful
+        '400':
+          description: Invalid request
+          examples:
+            application/json:
+              error: "The request contains invalid data"
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'   
+          
+          
+          
+  /transactions/{accountId}/{transactionId}/notes:        
+    put:
+      tags:
+          - Transactions
+      security:
+        - Bearer: []
+      summary: Modify the note of a transaction
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      - in: path
+        name: transactionId
+        type: string
+        required: true
+        description: Transaction identifier
+      - in: body
+        name: body
+        schema:
+          $ref: "#/definitions/TransactionNotesUpdate"
+        required: true
+      responses:
+        '200':
+          description: Modification successful
+          examples:
+            application/json:
+              message: "Transaction notes updated successfully"
+        '400':
+          description: Invalid request
+          examples:
+            application/json:
+              error: "The request contains invalid data"
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'
+          
+          
+        
+    delete:
+      tags:
+        - Transactions
+      security:
+        - Bearer: []
+      summary: Delete the note of a transaction
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: accountId
+        description: User's bank account identifier
+        type: string
+        required: true
+      - in: path
+        name: transactionId
+        type: string
+        required: true
+        description: Transaction identifier
+      responses:
+        '204':
+          description: Deletion successful
+        '400':
+          description: Invalid request
+          examples:
+            application/json:
+              error: "The request contains invalid data"
+        '401': 
+          description: Unauthorized (authentication required)
+          schema:
+            $ref: '#/definitions/Error401'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error500'  
+          
+          
+          
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    
+    
+    
+definitions:
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the transaction
+        example: 1265743
+      date:
+        type: string
+        format: date
+        description: Transaction date
+        example: 13-11-2023
+      description:
+        type: string
+        description: Transaction description
+        example: Online purchase
+      amount:
+        type: integer
+        description: Transaction amount
+        example: 1000
+      balance:
+        type: integer
+        description: Balance after the transaction
+        example: 2500
+  
+  Error401:
+    type: object
+    properties:
+      error:
+        type: integer
+        description: Error code 401
+        example: 401
+      message:
+        type: string
+        description: Error message for error 401
+        example: Unauthorized (authentication required)
+  
+  Error403:
+    type: object
+    properties:
+      error:
+        type: integer
+        description: Error code 403
+        example: 403
+      message:
+        type: string
+        description: Error message for error 403
+        example: Access denied
+        
+  Error404:
+    type: object
+    properties:
+      error:
+        type: integer
+        description: Error code 404
+        example: 404
+      message:
+        type: string
+        description: Error message for error 404
+        example: Resource not found
+
+  Error500:
+    type: object
+    properties:
+      error:
+        type: integer
+        description: Error code 500
+        example: 500
+      message:
+        type: string
+        description: Error message for error 500
+        example: Internal server error
+  
+
+  TransactionDetails:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the transaction
+        example: 1265743
+      date:
+        type: string
+        format: date
+        description: Transaction date
+        example: 18-11-2023
+      category:
+        type: string
+        description: Transaction category
+        example: Food
+      notes:
+        type: string
+        description: Transaction notes
+        example: Market purchaise
+      amount:
+        type: number
+        format: float
+        description: Transaction amount
+        example: 75
+        
+  NewTransaction:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the transaction
+        example: 1265743
+      date:
+        type: string
+        format: date
+        description: Date of the new transaction
+        example: 18-11-2023
+      description:
+        type: string
+        description: Description of the new transaction
+        example: Fuel purchase
+      amount:
+        type: number
+        format: float
+        description: Amount of the new transaction
+        example: 50
+        
+        
+  TransactionCategoryUpdate:
+    type: object
+    properties:
+      category:
+        type: string
+        enum: [Food, Health Care, Insurance, Other]
+        description: New category of the transaction
+    required: 
+      - category
+      
+      
+  TransactionNotesUpdate:
+    type: object
+    properties:
+      notes:
+        type: string
+        description: New notes for the transaction
+        example: Birthday gift purchase
+    required:
+      - notes

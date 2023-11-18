@@ -10,7 +10,7 @@
 }
 @media (max-width: 450px) {
   .main-nav{
-    padding: 5px 0;
+    padding: 5px 15px 5px 0px;
   }
 }
 
@@ -36,16 +36,12 @@
   margin: 0;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 560px) {
   .sign-out-p{
     display: none;
   }
 }
 
-
-.main-nav-item:hover {
-  text-decoration: underline;
-}
 
 .main-nav-logo {
   display: flex;
