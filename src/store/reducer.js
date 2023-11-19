@@ -21,28 +21,25 @@ const initialState = {
           token: null,
           error: action.payload,
         };
-        case 'LOGOUT':
-          return {
-            ...state,
+      case 'LOGOUT':
+        return {
+          ...state,
             isAuthenticated: false,
             token: null,
             error: null,
-          };
-
-          case 'GET_USER_PROFILE_SUCCESS':
-            return {
-              ...state,
+        };
+      case 'GET_USER_PROFILE_SUCCESS':
+        return {
+          ...state,
               firstName: action.payload.firstName, // stockage du prénom dans le store
               lastName: action.payload.lastName, 
-            };
-
+        };
       case 'UPDATE_USER_NAME_SUCCESS':
         return {
           ...state,
           firstName: action.payload.newFirstName,
           lastName: action.payload.newLastName,
-      };
-      
+        };
       default:
         // si type d'action n'est pas géré, retourne l'état actuel sans  modifier.
         return state;

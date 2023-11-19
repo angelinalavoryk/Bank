@@ -7,9 +7,11 @@ import ProfileName from '../ProfileName/ProfileName.jsx';
 import ArgentBankLogo from '../../images/argentBankLogo.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserProfile } from '../../store/profileAction'; 
+import { makeSelectIsAuthenticated } from '../../store/selectors.js';
+
 
 function Header() {
-  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const isAuthenticated = useSelector(makeSelectIsAuthenticated); 
   const dispatch = useDispatch();
 
   useEffect(() => {
