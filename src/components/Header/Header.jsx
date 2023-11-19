@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserProfile } from '../../store/profileAction'; 
 import { makeSelectIsAuthenticated } from '../../store/selectors.js';
 
-
 function Header() {
   const isAuthenticated = useSelector(makeSelectIsAuthenticated); 
   const dispatch = useDispatch();

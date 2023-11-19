@@ -8,17 +8,33 @@ function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [error, setError] = useState('');
 
-  // Appelé quand le formulaire est soumis
   const handleLogin = async (e) => {
     e.preventDefault();
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2}$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[a-zA-Z]*$/;  
     if (!emailRegex.test(email)) {
       setEmailError('Adresse e-mail invalide');
       return;
     }
-    setEmailError(''); // Si l'e-mail est valide, effacez les erreurs précédentes
-    dispatch(login(email, password));
+    setEmailError('');
+
+    if (!password) { // Vérifiez si le champ du mot de passe est vide
+      setError('Le mot de passe est obligatoire');
+      return;
+    }
+    try {
+      await dispatch(login(email, password));
+      // Si la connexion réussit, effacez l'erreur
+      setError('');
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError('L\'adresse e-mail ou le mot de passe est incorrect');
+      }
+    }
   };
 
   return (
@@ -53,6 +69,7 @@ function LogIn() {
                   <input type="checkbox" id="remember-me" />
                   <label htmlFor="remember-me">Remember me</label>
                 </div>
+                {error && <p className="error-message">{error}</p>}
                 <button className="sign-in-button" type="submit">
                   Sign In
                 </button>
@@ -66,6 +83,11 @@ function LogIn() {
 }
 
 export default LogIn;
+
+
+
+
+
 
 
 

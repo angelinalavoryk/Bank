@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { makeSelectFirstName } from '../../store/selectors.js'; 
 
-
-
 function ProfileName() {
   const firstName = useSelector(makeSelectFirstName);
   return (

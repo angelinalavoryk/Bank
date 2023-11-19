@@ -1,6 +1,5 @@
 import * as apiService from '../services/api.js'; 
 
-// Action de connexion
 export const login = (email, password) => async (dispatch) => {
   try {
     const jwtToken = await apiService.login(email, password);
@@ -10,28 +9,32 @@ export const login = (email, password) => async (dispatch) => {
       type: 'LOGIN_SUCCESS',
       payload: jwtToken,
     });
-  
-    // Redirigez l'utilisateur vers la page de profil après une connexion réussie
-    window.location.href = '/profile'; 
+    // redirigez l'utilisateur vers la page de profil après une connexion réussie
+    window.location.href = '/profile';
   } catch (error) {
     console.error('Erreur de connexion:', error);
+
+    let errorMessage = 'Email ou mot de passe incorrect';
 
     if (error.response) {
       const errorCode = error.response.status;
 
       if (errorCode === 400) {
-        console.error('Champs invalides ou requête incorrecte.');
+        errorMessage = 'Champs invalides ou requête incorrecte.';
       } else if (errorCode === 500) {
-        console.error('Erreur interne du serveur.');
+        errorMessage = 'Erreur interne du serveur.';
       }
     }
 
     dispatch({
       type: 'LOGIN_FAILURE',
-      payload: error.response.data.message || 'Erreur inconnue',
+      payload: errorMessage,
     });
+
+    throw errorMessage; 
   }
 };
+
 
 
 export const logout = () => (dispatch) => {
@@ -52,7 +55,7 @@ export const updateUserName = (newFirstName, newLastName) => async (dispatch, ge
     const authToken = getState().token;
     await apiService.updateUserProfile(authToken, newFirstName, newLastName);
     
-    // Mettre à jour le nom et le prénom dans le store Redux
+    // Mettre à jour le nom et le prénom 
     dispatch({
       type: 'UPDATE_USER_NAME_SUCCESS',
       payload: { newFirstName, newLastName },
@@ -61,7 +64,6 @@ export const updateUserName = (newFirstName, newLastName) => async (dispatch, ge
     console.error('Erreur lors de la mise à jour du nom et du prénom:', error);
   }
 };
-
 
 
 
