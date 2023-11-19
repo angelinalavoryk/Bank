@@ -11,17 +11,18 @@ function UserHeader() {
   const [newFirstName, setNewFirstName] = useState(firstName);
   const [newLastName, setNewLastName] = useState(lastName);
   const dispatch = useDispatch();
-
+  //open
   const handleEditClick = () => {
     setIsEditing(true);
   };
-
+  //close
   const handleCancelClick = () => {
     setIsEditing(false);
     setNewFirstName(firstName); // réinitialise les valeurs à celles actuelles
     setNewLastName(lastName);
   };
 
+  //save
   const handleSaveClick = () => {
     // Envoyer la mise à jour au backend
     dispatch(updateUserName(newFirstName, newLastName));

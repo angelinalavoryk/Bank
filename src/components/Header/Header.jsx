@@ -10,11 +10,11 @@ import { getUserProfile } from '../../store/profileAction';
 
 function Header() {
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
-  const dispatch = useDispatch(); // Obtenez la fonction de dispatch Redux
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isAuthenticated) {
-      dispatch(getUserProfile()); // Appeler getUserProfile après une connexion réussie
+      dispatch(getUserProfile()); // appeler getUserProfile après une connexion réussie
     }
   }, [isAuthenticated, dispatch]);
 

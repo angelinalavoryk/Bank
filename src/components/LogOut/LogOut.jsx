@@ -3,23 +3,17 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../store/authAction.js';
 
-
-
 function LogOut() {
-  
-    const dispatch = useDispatch();
-    const handleLogout = () => {
-      dispatch(logout());
-    };
-
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <div>
         <Link 
         className='main-nav-item'
         onClick={handleLogout}
         >
-          
-        
         <svg 
         xmlns="http://www.w3.org/2000/svg" 
         height="1em" 

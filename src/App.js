@@ -12,7 +12,6 @@ import './App.css';
 
 function App() {
   const isAuthenticated = localStorage.getItem('authToken') ? true : false;
-
   return (
     <div className="App">
       <Header />
