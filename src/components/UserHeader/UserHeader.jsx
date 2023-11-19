@@ -8,8 +8,8 @@ function UserHeader() {
   const firstName = useSelector(makeSelectFirstName); 
   const lastName = useSelector(makeSelectLastName);
   const [isEditing, setIsEditing] = useState(false);
-  const [newFirstName, setNewFirstName] = useState(firstName);
-  const [newLastName, setNewLastName] = useState(lastName);
+  const [newFirstName, setNewFirstName] = useState('');
+  const [newLastName, setNewLastName] = useState('');
   const dispatch = useDispatch();
   //open
   const handleEditClick = () => {
