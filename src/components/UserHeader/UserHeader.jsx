@@ -21,7 +21,6 @@ function UserHeader() {
     setNewFirstName(firstName); // réinitialise les valeurs à celles actuelles
     setNewLastName(lastName);
   };
-
   //save
   const handleSaveClick = () => {
     // Envoyer la mise à jour au backend

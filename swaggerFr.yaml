@@ -6,11 +6,11 @@ info:
   termsOfService: 'http://swagger.io/terms/'
 host: localhost:3001
 basePath: /api/v1
-schemes:
+schemes: #protocle 
   - http
 paths:
 
-  /transactions/{accountId}:
+  /user/account/{accountId}/transactions:
     get:
       tags:
       - Transactions
@@ -104,7 +104,7 @@ paths:
           
           
           
-  /transactions/{accountId}/{transactionId}:
+  /user/account/{accountId}/transactions/{transactionId}:
     get:
       tags:
           - Transactions
@@ -151,7 +151,7 @@ paths:
           
           
           
-  /transactions/{accountId}/{transactionId}/category:
+  /user/account/{accountId}/transactions/{transactionId}/category:
     put:
       tags:
           - Transactions
@@ -241,7 +241,7 @@ paths:
           
           
           
-  /transactions/{accountId}/{transactionId}/notes:        
+  /user/account/{accountId}/transactions/{transactionId}/notes:        
     put:
       tags:
           - Transactions
