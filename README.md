@@ -38,6 +38,12 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
    `cd Front-end ` 
 3. Installez les dépendances : ` npm install `
 4. Lancez l'application front-end : ` npm start `
+5. Pour se connecter utiliser un des personnage fictif : 
+   email: `tony@stark.com ` 
+   password: `password123`
+   ou 
+   email: `steve@rogers.com`,
+   password: `password456`
 
 
 ---
